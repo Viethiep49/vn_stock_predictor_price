@@ -90,8 +90,24 @@ df = stock.quote.history(start="2015-01-01", end="2024-12-23", interval="1D")
 
 - [x] Project structure created
 - [x] All skeleton files created
-- [ ] Data collection & EDA
+- [x] Data collection & EDA
 - [ ] Feature engineering pipeline
 - [ ] Model training
 - [ ] Backtesting
 - [ ] Dashboard integration
+
+## EDA Summary (2024-12-24)
+
+- **Data Range:** 2014-07-09 to 2024-12-24 (2867 trading days)
+- **Price Range:** 2.19 - 28.45 (x1000 VND)
+- **Current Price:** 25.30
+- **Annualized Return:** 25.48%
+- **Annualized Volatility:** 29.23%
+- **Correlation with VNINDEX:** 0.72
+- **Correlation with VN30:** 0.75
+- **Data Files:**
+  - `data/raw/mbb_daily.csv` - OHLCV daily data
+  - `data/raw/mbb_weekly.csv` - OHLCV weekly data
+  - `data/raw/vnindex_daily.csv` - VN-Index data
+  - `data/raw/vn30_daily.csv` - VN30 data
+  - `data/processed/mbb_clean.csv` - Clean data for training

@@ -128,15 +128,29 @@ class DataCollector:
 
 
 if __name__ == "__main__":
-    # Test data collection
+    # Data collection and save
     collector = DataCollector("MBB")
 
     print("Fetching MBB daily data...")
     df_daily = collector.get_ohlcv(start_date="2015-01-01", interval="1D")
     print(f"Daily data shape: {df_daily.shape}")
     print(df_daily.head())
+    collector.save_data(df_daily, "mbb_daily")
 
     print("\nFetching MBB weekly data...")
     df_weekly = collector.get_ohlcv(start_date="2015-01-01", interval="1W")
     print(f"Weekly data shape: {df_weekly.shape}")
     print(df_weekly.head())
+    collector.save_data(df_weekly, "mbb_weekly")
+
+    print("\nFetching VNINDEX data...")
+    df_vnindex = collector.get_market_index(index_symbol="VNINDEX", start_date="2015-01-01")
+    print(f"VNINDEX data shape: {df_vnindex.shape}")
+    collector.save_data(df_vnindex, "vnindex_daily")
+
+    print("\nFetching VN30 data...")
+    df_vn30 = collector.get_market_index(index_symbol="VN30", start_date="2015-01-01")
+    print(f"VN30 data shape: {df_vn30.shape}")
+    collector.save_data(df_vn30, "vn30_daily")
+
+    print("\n=== Data collection completed! ===")
